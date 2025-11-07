@@ -1,6 +1,6 @@
-import '../App.css'
-import LeftPanel from '../components/LeftPanel';
-import RightPanel from '../components/RightPanel';
+import '../App.css';
+import LeftPanel from '../components/login/LeftPanel';
+import RightPanel from '../components/login/RightPanel';
 
 function Login() {
   return (

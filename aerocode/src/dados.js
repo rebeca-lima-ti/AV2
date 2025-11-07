@@ -1,25 +1,25 @@
-export const users = [
-  { email: "adm@teste.com", password: "123", role: "adm" },
-  { email: "operador@teste.com", password: "123", role: "operador" },
-  { email: "engenheiro@teste.com", password: "123", role: "engenheiro" },
+export const funcionarios = [
+  { id: 1, nome: "Rebeca Lima", telefone: "00000-0000", usuario: "adm", senha: "123", role: "adm" },
+  { id: 2, nome: "Rafael Sette", telefone: "11111-1111", usuario: "operador", senha: "123", role: "operador" },
+  { id: 3, nome: "Gerson ", telefone: "22222-2222", usuario: "engenheiro", senha: "123", role: "engenheiro" },
 ];
 
-export function login(email, password) {
-  const user = users.find(
-    (u) => u.email === email && u.password === password
+export function login(usuario, senha) {
+  const funcionario = funcionarios.find(
+    (u) => u.usuario === usuario && u.senha === senha
   );
-  if (user) {
-    localStorage.setItem("user", JSON.stringify(user));
-    return user;
+  if (funcionario) {
+    localStorage.setItem("funcionario", JSON.stringify(funcionario));
+    return funcionario;
   }
   return null;
 }
 
-export function getUser() {
-  const data = localStorage.getItem("user");
+export function getFuncionario() {
+  const data = localStorage.getItem("funcionario");
   return data ? JSON.parse(data) : null;
 }
 
 export function logout() {
-  localStorage.removeItem("user");
+  localStorage.removeItem("funcionario");
 }

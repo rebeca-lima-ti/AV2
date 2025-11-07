@@ -3,7 +3,7 @@ import "../App.css"
 
 function SecaoAeronaves() {
     return (
-        <div className="card align-items-center text-center p-5">
+        <div className="card col-md-5 align-items-center text-center p-5">
             <AirplaneFill className="fs-8"/>
             <h3>Aeronaves</h3>
             <button className="btn bg-blue-primary py-1 px-3">Gerenciar aeronaves</button>

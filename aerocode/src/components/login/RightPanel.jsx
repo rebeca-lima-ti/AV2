@@ -1,22 +1,22 @@
 import { useState } from "react";
 import { Form } from "react-bootstrap";
-import { Envelope, Lock } from "react-bootstrap-icons";
-import "../App.css"
+import { Person, Lock } from "react-bootstrap-icons";
+import "../../App.css"
 import { useNavigate } from "react-router-dom";
-import { login } from "../dados";
+import { login } from "../../dados";
 
 function RightPanel() {
-    const [email, setEmail] = useState("");
-    const [password, setPassword] = useState("");
+    const [usuario, setUsuario] = useState("");
+    const [senha, setSenha] = useState("");
     const navigate = useNavigate();
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        const user = login(email, password);
+        const funcionario = login(usuario, senha);
 
-        if (user) {
-            if (user.role === "adm") navigate("/homeadm");
-            else if (user.role == "operador" || user.role == "engenheiro") navigate("/homeengope");
+        if (funcionario) {
+            if (funcionario.role === "adm") navigate("/homeadm");
+            else if (funcionario.role == "operador" || funcionario.role == "engenheiro") navigate("/homeengope");
         } else {
             setError("Usuário ou senha inválidos!");
         }
@@ -28,12 +28,12 @@ function RightPanel() {
 
             <Form onSubmit={handleSubmit}>
                 <div className="mb-3 position-relative">
-                    <Form.Control type="email" placeholder="insira seu e-mail" className="rounded-pill ps-5 py-2" value={email} onChange={(e) => setEmail(e.target.value)}/>
-                    <Envelope className="position-absolute top-50 start-0 translate-middle-y ms-3 text-muted" />
+                    <Form.Control type="text" placeholder="insira seu usuario" className="rounded-pill ps-5 py-2" value={usuario} onChange={(e) => setUsuario(e.target.value)}/>
+                    <Person className="position-absolute top-50 start-0 translate-middle-y ms-3 text-muted" />
                 </div>
 
                 <div className="mb-3 position-relative">
-                    <Form.Control type="password" placeholder="insira sua senha" value={password} onChange={(e) => setPassword(e.target.value)} className="rounded-pill ps-5 py-2" />
+                    <Form.Control type="password" placeholder="insira sua senha" value={senha} onChange={(e) => setSenha(e.target.value)} className="rounded-pill ps-5 py-2" />
                     <Lock className="position-absolute top-50 start-0 translate-middle-y ms-3 text-muted" />
                 </div>
 

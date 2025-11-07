@@ -2,6 +2,7 @@ import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-d
 import Login from "./pages/Login";
 import HomeAdm from "./pages/HomeAdm";
 import HomeEngOpe from "./pages/HomeEngOpe";
+import Funcionarios from "./pages/Funcionarios";
 
 function App() {
   return (
@@ -11,6 +12,7 @@ function App() {
         <Route path="/login" element={<Login />}/>
         <Route path="/homeadm" element={<HomeAdm />} />
         <Route path="/homeengope" element={<HomeEngOpe />} />
+        <Route path="/funcionarios" element={<Funcionarios />} />
       </Routes>
     </Router>
   );
