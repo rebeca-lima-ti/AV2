@@ -1,7 +1,7 @@
 import "../../App.css"
 import { useState } from "react";
 import { Form } from "react-bootstrap";
-import { Pencil, Trash } from "react-bootstrap-icons";
+import { Pencil, PersonPlusFill, Trash } from "react-bootstrap-icons";
 import { funcionarios } from "../../dados"
 import ModalFuncionario from './ModalFuncionario';
 
@@ -52,8 +52,8 @@ function ListaFuncionarios() {
                     <h3 className="fw-bold mb-0">Gerenciamento de Funcionários</h3>
                 </div>
                 <div className="col-md-4 text-end">
-                    <button className="btn bg-blue-primary" onClick={handleNovo}>
-                        + Novo Funcionário
+                    <button className="btn btn-primary" onClick={handleNovo}>
+                        <PersonPlusFill/> Novo Funcionário
                     </button>
                 </div>
             </div>

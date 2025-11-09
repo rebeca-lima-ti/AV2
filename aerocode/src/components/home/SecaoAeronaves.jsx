@@ -1,5 +1,5 @@
 import { AirplaneFill } from "react-bootstrap-icons";
-import "../App.css"
+import "../../App.css"
 
 function SecaoAeronaves() {
     return (

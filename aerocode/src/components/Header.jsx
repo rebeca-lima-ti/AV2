@@ -1,8 +1,9 @@
 import "../App.css"
-import { logout } from "../dados";
 import { useNavigate } from "react-router-dom";
+import { useAuth } from "../context/AuthContext";
 
 function Header() {
+    const { logout } = useAuth();
     const navigate = useNavigate();
 
     const handleLogout = () => {

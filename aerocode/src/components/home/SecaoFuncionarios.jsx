@@ -1,6 +1,6 @@
 import { PeopleFill } from "react-bootstrap-icons";
 import { Link } from "react-router-dom";
-import "../App.css"
+import "../../App.css"
 
 function SecaoFuncionarios() {
     return (

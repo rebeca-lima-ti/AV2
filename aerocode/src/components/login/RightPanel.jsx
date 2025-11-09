@@ -3,22 +3,21 @@ import { Form } from "react-bootstrap";
 import { Person, Lock } from "react-bootstrap-icons";
 import "../../App.css"
 import { useNavigate } from "react-router-dom";
-import { login } from "../../dados";
+import { useAuth } from "../../context/AuthContext";
 
 function RightPanel() {
+    const { login } = useAuth();
     const [usuario, setUsuario] = useState("");
     const [senha, setSenha] = useState("");
     const navigate = useNavigate();
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        const funcionario = login(usuario, senha);
-
-        if (funcionario) {
-            if (funcionario.role === "adm") navigate("/homeadm");
-            else if (funcionario.role == "operador" || funcionario.role == "engenheiro") navigate("/homeengope");
-        } else {
-            setError("Usuário ou senha inválidos!");
+        const resposta = login(usuario, senha);
+        if (resposta === ""){
+            navigate("/")
+        } else{
+            alert(resposta)
         }
     };
     return (
@@ -29,11 +28,11 @@ function RightPanel() {
             <Form onSubmit={handleSubmit}>
                 <div className="mb-3 position-relative">
                     <Form.Control type="text" placeholder="insira seu usuario" className="rounded-pill ps-5 py-2" value={usuario} onChange={(e) => setUsuario(e.target.value)}/>
-                    <Person className="position-absolute top-50 start-0 translate-middle-y ms-3 text-muted" />
+                    <Person className="position-absolute top-50 start-0 translate-middle-y ms-3 text-muted" required/>
                 </div>
 
                 <div className="mb-3 position-relative">
-                    <Form.Control type="password" placeholder="insira sua senha" value={senha} onChange={(e) => setSenha(e.target.value)} className="rounded-pill ps-5 py-2" />
+                    <Form.Control type="password" placeholder="insira sua senha" value={senha} onChange={(e) => setSenha(e.target.value)} className="rounded-pill ps-5 py-2" required/>
                     <Lock className="position-absolute top-50 start-0 translate-middle-y ms-3 text-muted" />
                 </div>
 
